@@ -3,13 +3,13 @@
     <div class="page-number">{{ $route.meta.pageNumber }}</div>
     <div class="container">
       <h2 class="section-title text-reveal" ref="sectionTitle">
-        <span class="text-reveal-inner">A LITTLE ABOUT ME</span>
+        <span class="text-reveal-inner">ABOUT ME</span>
       </h2>
 
       <div class="about-content grid">
         <div class="about-text">
           <p class="about-description" ref="aboutDescription">
-            I am a digital nomad currently based in Hong Kong. I've been working in graphic design for the past ten years. It was only in the past three that I decided to focus full-time on illustrating.
+            I am a Christian coder, currently splitting my time between Chicago, IL and Vancover, Canada. I am studying linguistics and working on Bible translation software.
           </p>
         </div>
 
@@ -26,17 +26,15 @@
   </section>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
-
-export default {
-  name: 'About',
-  setup() {
-    const sectionTitle = ref(null)
+    const sectionTitle = ref<HTMLElement | null>(null)
     const aboutDescription = ref(null)
 
     onMounted(() => {
+      if (!sectionTitle.value) return
+
       // GSAP animation
       const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power3.out' } })
 
@@ -54,13 +52,6 @@ export default {
         stagger: 0.2
       }, '-=0.8')
     })
-
-    return {
-      sectionTitle,
-      aboutDescription
-    }
-  }
-}
 </script>
 
 <style scoped>

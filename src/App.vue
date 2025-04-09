@@ -9,19 +9,13 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import Navigation from '@/components/Navigation.vue'
 import { onMounted, onUnmounted } from 'vue'
 
-export default {
-  name: 'App',
-  components: {
-    Navigation
-  },
-  setup() {
     // Custom cursor implementation
-    const updateCursor = (e) => {
-      const cursor = document.querySelector('.custom-cursor')
+    const updateCursor = (e: MouseEvent) => {
+      const cursor = document.querySelector('.custom-cursor') as HTMLElement
       if (cursor) {
         cursor.style.left = `${e.clientX}px`
         cursor.style.top = `${e.clientY}px`
@@ -60,10 +54,6 @@ export default {
       const cursor = document.querySelector('.custom-cursor')
       if (cursor) document.body.removeChild(cursor)
     })
-
-    return {}
-  }
-}
 </script>
 
 <style>

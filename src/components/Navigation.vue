@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="hamburger" @click="toggleMenu">
-      <span></span>
-      <span></span>
-      <span></span>
+      <img src="../assets/svg/line.svg" alt="Menu line" />
+      <img src="../assets/svg/line.svg" alt="Menu line" />
+      <img src="../assets/svg/line.svg" alt="Menu line" />
     </div>
 
     <transition name="menu">
@@ -18,7 +18,7 @@
           <ul class="menu-items">
             <li v-for="(item, index) in menuItems" :key="index">
               <router-link :to="item.path" @click="closeMenu">
-                <span class="menu-number">{{ item.meta.pageNumber }}</span>
+                <span class="menu-number">{{ item.meta && item.meta.pageNumber || '' }}</span>
                 <span class="menu-title">{{ item.name }}</span>
               </router-link>
             </li>
@@ -29,13 +29,10 @@
   </nav>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-export default {
-  name: 'Navigation',
-  setup() {
     const router = useRouter()
     const isMenuOpen = ref(false)
 
@@ -52,14 +49,7 @@ export default {
       document.body.style.overflow = ''
     }
 
-    return {
-      isMenuOpen,
-      menuItems,
-      toggleMenu,
-      closeMenu
-    }
-  }
-}
+
 </script>
 
 <style scoped>
@@ -148,5 +138,10 @@ export default {
   .menu-number {
     font-size: 1rem;
   }
+}
+
+.hamburger img {
+  width: 30px;
+  height: auto;
 }
 </style>

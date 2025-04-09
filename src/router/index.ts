@@ -31,7 +31,7 @@ const routes = [
     path: '/projects',
     name: 'Projects',
     component: () => import("../views/Projects.vue"),
-    meta: { pageNumber: '06' }
+    meta: { pageNumber: '05' }
   },
   // {
   //   path: '/contact',

@@ -20,25 +20,22 @@
   </section>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 
-export default {
-  name: 'OtherProjects',
-  setup() {
-    const sectionTitle = ref(null)
-    const projectDescription = ref(null)
-    const projectsShowcase = ref(null)
+const sectionTitle = ref<HTMLElement | null>(null)
+const projectDescription = ref<HTMLElement | null>(null)
+const projectsShowcase = ref<HTMLElement | null>(null)
 
-    onMounted(() => {
-      // GSAP animation
-      const tl = gsap.timeline({ defaults: { duration: 0.8, ease: 'power3.out' } })
+onMounted(() => {
+  // GSAP animation
+  const tl = gsap.timeline({ defaults: { duration: 0.8, ease: 'power3.out' } })
 
-      tl.to(sectionTitle.value.querySelector('.text-reveal-inner'), {
-        y: 0,
-        delay: 0.2
-      })
+  if (sectionTitle.value) {
+    tl.to(sectionTitle.value.querySelector('.text-reveal-inner'), {
+      y: 0,
+    })
       .from(projectDescription.value, {
         opacity: 0,
         y: 20
@@ -47,15 +44,8 @@ export default {
         opacity: 0,
         y: 30
       }, '-=0.5')
-    })
-
-    return {
-      sectionTitle,
-      projectDescription,
-      projectsShowcase
-    }
   }
-}
+})
 </script>
 
 <style scoped>
