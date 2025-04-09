@@ -1,85 +1,72 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div id="app">
+    <Navigation />
+    <router-view v-slot="{ Component }">
+      <transition name="page" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script>
+import Navigation from '@/components/Navigation.vue'
+import { onMounted, onUnmounted } from 'vue'
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  name: 'App',
+  components: {
+    Navigation
+  },
+  setup() {
+    // Custom cursor implementation
+    const updateCursor = (e) => {
+      const cursor = document.querySelector('.custom-cursor')
+      if (cursor) {
+        cursor.style.left = `${e.clientX}px`
+        cursor.style.top = `${e.clientY}px`
+      }
+    }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+    const handleMouseDown = () => {
+      const cursor = document.querySelector('.custom-cursor')
+      if (cursor) cursor.classList.add('active')
+    }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+    const handleMouseUp = () => {
+      const cursor = document.querySelector('.custom-cursor')
+      if (cursor) cursor.classList.remove('active')
+    }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+    onMounted(() => {
+      // Create custom cursor element
+      const cursorElement = document.createElement('div')
+      cursorElement.classList.add('custom-cursor')
+      document.body.appendChild(cursorElement)
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+      // Add event listeners
+      window.addEventListener('mousemove', updateCursor)
+      window.addEventListener('mousedown', handleMouseDown)
+      window.addEventListener('mouseup', handleMouseUp)
+    })
 
-nav a:first-of-type {
-  border: 0;
-}
+    onUnmounted(() => {
+      // Remove event listeners
+      window.removeEventListener('mousemove', updateCursor)
+      window.removeEventListener('mousedown', handleMouseDown)
+      window.removeEventListener('mouseup', handleMouseUp)
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+      // Remove custom cursor element
+      const cursor = document.querySelector('.custom-cursor')
+      if (cursor) document.body.removeChild(cursor)
+    })
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    return {}
   }
 }
+</script>
+
+<style>
+@import './assets/styles/main.css';
+@import './assets/styles/transitions.css';
 </style>
