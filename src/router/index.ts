@@ -1,6 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '../views/Home.vue'
+import type { ProjectData } from '../types/types'
+
+const projects: ProjectData[] = [
+  {
+    id: '1',
+    title: 'Project 1',
+    description: 'Description of Project 1',
+    image: 'path/to/image1.jpg',
+    category: 'Category 1',
+    link: 'https://example.com/project1'
+  },
+  {
+    id: '2',
+    title: 'Project 2',
+    description: 'Description of Project 2',
+    image: 'path/to/image2.jpg',
+    category: 'Category 2',
+    link: 'https://example.com/project2'
+  }
+]
 
 const routes = [
   {

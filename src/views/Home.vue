@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import SketchImage from '@/components/SketchImage.vue'
 
 const nameTitle = ref<HTMLElement | null>(null)
 const portfolioTitle = ref<HTMLElement | null>(null)
@@ -32,6 +33,9 @@ onMounted(() => {
           <span class="text-reveal-inner">Joshua Price</span>
         </h1>
         <div class="home-image">
+          <SketchImage
+            :imageSrc="'/assets/img/profile-cropped.jpg'"
+          />
           <!-- <img src="/images/profile.jpg" alt="Tristan Clousso profile" /> -->
         </div>
         <h2 ref="portfolioTitle" class="portfolio-title text-reveal">
@@ -76,7 +80,7 @@ h1 {
 
 .home-image {
   width: 300px;
-  height: 400px;
+  height: 300px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;

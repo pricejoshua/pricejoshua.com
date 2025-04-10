@@ -8,27 +8,31 @@
 
       <div class="work-content grid">
         <div class="work-column" ref="agencyColumn">
-          <h3 class="work-title">Agency Work</h3>
+          <h3 class="work-title">Day Jobs</h3>
 
           <div class="work-item">
-            <h4>GRAYERVILLE GRAPHIC STUDIO</h4>
-            <p class="work-position">— HEAD OF CREATIVES</p>
-            <p class="work-period">(2020-2022)</p>
-            <p class="work-position">— ART DIRECTOR</p>
-            <p class="work-period">(2018-2020)</p>
+            <h4>EWERT ENERGY SYSTEMS</h4>
+            <a class="work-position">— Software Developer for Test Equipment</a>
+            <p class="work-period">(2023-Present)</p>
           </div>
 
           <div class="work-item">
-            <h4>JKLI DESIGN STUDIO</h4>
-            <p class="work-position">— Senior Designer</p>
-            <p class="work-period">(2016-2018)</p>
-            <p class="work-position">— Junior Designer</p>
-            <p class="work-period">(2015-2016)</p>
+            <h4>PEACEGENERATION INDONESIA</h4>
+            <p class="work-position">— Website Developer</p>
+            <p class="work-period">(2022)</p>
+          </div>
+
+          <div class="work-item">
+            <h4>WHEATON COLLEGE</h4>
+            <p class="work-position">— Computer Science Lab Assistant</p>
+            <p class="work-period">(2023)</p>
+            <p class="work-position">— Resident Assistant</p>
+            <p class="work-period">(2022-2023)</p>
           </div>
         </div>
 
         <div class="work-column" ref="freelanceColumn">
-          <h3 class="work-title">Freelance Work</h3>
+          <h3 class="work-title">Freelance</h3>
 
           <div class="work-item">
             <h4>FULL-TIME ILLUSTRATOR</h4>

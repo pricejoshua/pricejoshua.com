@@ -101,7 +101,6 @@ img {
   width: 100%;
   padding: calc(var(--spacing-unit) * 3);
   z-index: 100;
-  mix-blend-mode: difference;
   color: var(--color-white);
 }
 
@@ -186,7 +185,7 @@ img {
   width: 450px;
   height: 450px;
   border-radius: 100%;
-  background-image: linear-gradient(#ffffff 10%, #4400ff);
+  background-image: linear-gradient(#ffffff 10%, #0400ff);
   filter: blur(200px);
   transition: all 450ms ease-out;
   position: fixed;

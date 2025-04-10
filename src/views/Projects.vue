@@ -1,6 +1,5 @@
-<!-- src/views/Projects.vue -->
 <template>
-  <section class="section other-projects">
+  <section class="section projects">
     <div class="page-number">{{ $route.meta.pageNumber }}</div>
     <div class="container">
       <h2 class="section-title text-reveal" ref="sectionTitle">
@@ -8,12 +7,12 @@
       </h2>
 
       <div class="project-description-text" ref="projectDescription">
-        <p>A SAMPLE OF POSTERS AND CARDS CONCEPTUALIZED, DESIGNED, AND CREATED BY ME</p>
+        <p>A LIST OF PROJECTS I CREATED OR CONTRIBUTED TO</p>
       </div>
 
       <div class="projects-showcase" ref="projectsShowcase">
         <div class="projects-grid">
-          <!-- <img src="/images/works/other-projects.jpg" alt="Sample of poster designs" class="projects-collage" /> -->
+          <slot name="projects" />
         </div>
       </div>
     </div>
@@ -23,6 +22,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import Project from '@/components/Project.vue'
+import type { ProjectData } from '@/types/types';
+
+const props = defineProps<{
+  projects: ProjectData[]
+}>()
 
 const sectionTitle = ref<HTMLElement | null>(null)
 const projectDescription = ref<HTMLElement | null>(null)

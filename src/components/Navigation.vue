@@ -55,7 +55,6 @@ import { useRouter } from 'vue-router'
   position: fixed;
   top: calc(var(--spacing-unit) * 5);
   left: calc(var(--spacing-unit) * 5);
-  background-color: var(--color-black);
   width: 30px;
   height: 25px;
   cursor: pointer;
@@ -69,7 +68,7 @@ import { useRouter } from 'vue-router'
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--color-white);
+  background-color: var(--color-black);
   transition: all 0.3s ease;
   transform-origin: center;
 }
