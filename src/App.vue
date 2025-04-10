@@ -22,6 +22,13 @@ import { onMounted, onUnmounted } from 'vue'
       }
     }
 
+    const updateBlob = (e: MouseEvent) => {
+      const blob = document.querySelector('.blob') as HTMLElement
+      var x = e.clientX
+      var y = e.clientY
+      blob.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+    }
+
     const handleMouseDown = () => {
       const cursor = document.querySelector('.custom-cursor')
       if (cursor) cursor.classList.add('active')
@@ -38,10 +45,16 @@ import { onMounted, onUnmounted } from 'vue'
       cursorElement.classList.add('custom-cursor')
       document.body.appendChild(cursorElement)
 
+      // Create custom blob element
+      const blobElement = document.createElement('div')
+      blobElement.classList.add('blob')
+      document.body.appendChild(blobElement)
+
       // Add event listeners
       window.addEventListener('mousemove', updateCursor)
       window.addEventListener('mousedown', handleMouseDown)
       window.addEventListener('mouseup', handleMouseUp)
+      window.addEventListener('mousemove', updateBlob)
     })
 
     onUnmounted(() => {

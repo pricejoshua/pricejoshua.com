@@ -1,20 +1,14 @@
 <template>
   <nav class="navbar">
-    <div class="hamburger" @click="toggleMenu">
-      <img src="../assets/svg/line.svg" alt="Menu line" />
-      <img src="../assets/svg/line.svg" alt="Menu line" />
-      <img src="../assets/svg/line.svg" alt="Menu line" />
+    <div class="hamburger" :class="{ open: isMenuOpen }" @click="toggleMenu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
     <transition name="menu">
       <div v-if="isMenuOpen" class="menu">
         <div class="menu-container">
-          <div class="menu-header">
-            <div class="hamburger open" @click="toggleMenu">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
           <ul class="menu-items">
             <li v-for="(item, index) in menuItems" :key="index">
               <router-link :to="item.path" @click="closeMenu">
@@ -48,8 +42,6 @@ import { useRouter } from 'vue-router'
       isMenuOpen.value = false
       document.body.style.overflow = ''
     }
-
-
 </script>
 
 <style scoped>
@@ -57,6 +49,45 @@ import { useRouter } from 'vue-router'
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.hamburger {
+  position: fixed;
+  top: calc(var(--spacing-unit) * 5);
+  left: calc(var(--spacing-unit) * 5);
+  background-color: var(--color-black);
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1100;  /* Ensure it's above the menu */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-white);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.open span {
+  background-color: var(--color-white);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
 }
 
 .menu {
@@ -73,6 +104,17 @@ import { useRouter } from 'vue-router'
   padding: calc(var(--spacing-unit) * 10);
 }
 
+/* Menu transition animations */
+.menu-enter-active,
+.menu-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+}
+
 .menu-container {
   height: 100%;
   display: flex;
@@ -83,18 +125,6 @@ import { useRouter } from 'vue-router'
   display: flex;
   justify-content: space-between;
   margin-bottom: calc(var(--spacing-unit) * 10);
-}
-
-.hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .menu-items {
@@ -138,10 +168,5 @@ import { useRouter } from 'vue-router'
   .menu-number {
     font-size: 1rem;
   }
-}
-
-.hamburger img {
-  width: 30px;
-  height: auto;
 }
 </style>
