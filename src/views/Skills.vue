@@ -13,13 +13,14 @@
         </div>
 
         <div class="skills-list">
-          <div class="skills-category" ref="graphicDesign">
-            <h3 class="skills-category-title">Graphic Design</h3>
+          <div class="skills-category" ref="programmingLanguages">
+            <h3 class="skills-category-title">Programming Languages</h3>
             <ul>
-              <li>— Logo Design</li>
-              <li>— Brand Identity</li>
-              <li>— Poster Design</li>
-              <li>— Environmental Design</li>
+              <li>— Java</li>
+              <li>— C</li>
+              <li>— JavaScript</li>
+              <li>— TypeScript</li>
+              <li>— Python</li>
             </ul>
           </div>
 

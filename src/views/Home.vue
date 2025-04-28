@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 import SketchImage from '@/components/SketchImage.vue'
+import profileImage from '@/assets/img/profile-cropped.jpg'
+import SketchFilter from '@/components/SketchFilter.vue'
 
 const nameTitle = ref<HTMLElement | null>(null)
 const portfolioTitle = ref<HTMLElement | null>(null)
@@ -33,14 +35,8 @@ onMounted(() => {
           <span class="text-reveal-inner">Joshua Price</span>
         </h1>
         <div class="home-image">
-          <SketchImage
-            :imageSrc="'/assets/img/profile-cropped.jpg'"
-          />
-          <!-- <img src="/images/profile.jpg" alt="Tristan Clousso profile" /> -->
+          <img :src="profileImage" alt="Joshua Price profile" />
         </div>
-        <h2 ref="portfolioTitle" class="portfolio-title text-reveal">
-          <span class="text-reveal-inner">PORTFOLIO</span>
-        </h2>
         <p ref="jobTitle" class="job-title text-reveal">
           <span class="text-reveal-inner">Coder and Creative</span>
         </p>
