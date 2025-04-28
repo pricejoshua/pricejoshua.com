@@ -11,8 +11,6 @@
     <div v-if="debug" class="debug-info">
       <p>Status: {{ status }}</p>
       <p>Edges: {{ edgeCount }}</p>
-    <p>Canvas: {{ canvasWidth }}x{{ canvasHeight }}</p>
-    <p>CSS: {{ canvasStyleWidth }}x{{ canvasStyleHeight }}</p>
     </div>
   </div>
 </template>
