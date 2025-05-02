@@ -15,7 +15,7 @@
 
         <div class="about-images">
           <div class="about-image image-hover">
-            <!-- <img src="/images/about.jpg" alt="Designer at work" /> -->
+            <img :src=profileImage alt="Joshua Price profile" />
           </div>
           <div class="about-image-small image-hover">
             <!-- <img src="/images/about.jpg" alt="Designer at desk" /> -->
@@ -29,6 +29,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
+import profileImage from '@/assets/img/profile-cropped.jpg'
     const sectionTitle = ref<HTMLElement | null>(null)
     const aboutDescription = ref(null)
 

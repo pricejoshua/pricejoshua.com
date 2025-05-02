@@ -1,4 +1,3 @@
-<!-- src/views/Skills.vue -->
 <template>
   <section class="section skills">
     <div class="page-number">{{ $route.meta.pageNumber }}</div>
@@ -13,6 +12,16 @@
         </div>
 
         <div class="skills-list">
+          <div class="skills-category" ref="devSkills">
+            <h3 class="skills-category-title">Skills</h3>
+            <ul>
+              <li>— Web Development</li>
+              <li>— Microcontroller Programming</li>
+              <li>— Machine Learning</li>
+              <li>— Computational Linguistics</li>
+              <li>— Large Language Models</li>
+            </ul>
+          </div>
           <div class="skills-category" ref="programmingLanguages">
             <h3 class="skills-category-title">Programming Languages</h3>
             <ul>
@@ -21,14 +30,6 @@
               <li>— JavaScript</li>
               <li>— TypeScript</li>
               <li>— Python</li>
-            </ul>
-          </div>
-
-          <div class="skills-category" ref="illustration">
-            <h3 class="skills-category-title">Illustration</h3>
-            <ul>
-              <li>— Digital Illustration</li>
-              <li>— Street Art and Murals</li>
             </ul>
           </div>
         </div>

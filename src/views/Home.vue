@@ -34,9 +34,6 @@ onMounted(() => {
         <h1 ref="nameTitle" class="text-reveal">
           <span class="text-reveal-inner">Joshua Price</span>
         </h1>
-        <div class="home-image">
-          <img :src="profileImage" alt="Joshua Price profile" />
-        </div>
         <p ref="jobTitle" class="job-title text-reveal">
           <span class="text-reveal-inner">Coder and Creative</span>
         </p>

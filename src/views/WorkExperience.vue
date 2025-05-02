@@ -3,12 +3,12 @@
     <div class="page-number">{{ $route.meta.pageNumber }}</div>
     <div class="container">
       <h2 class="section-title text-reveal" ref="sectionTitle">
-        <span class="text-reveal-inner">WORK EXPERIENCE</span>
+        <span class="text-reveal-inner">EXPERIENCE</span>
       </h2>
 
       <div class="work-content grid">
         <div class="work-column" ref="agencyColumn">
-          <h3 class="work-title">Day Jobs</h3>
+          <h3 class="work-title">Jobs</h3>
 
           <div class="work-item">
             <h4>EWERT ENERGY SYSTEMS</h4>
@@ -31,21 +31,25 @@
           </div>
         </div>
 
-        <div class="work-column" ref="freelanceColumn">
-          <h3 class="work-title">Freelance</h3>
+        <div class="work-column" ref="hackathonColumn">
+          <h3 class="work-title">Hackathon Projects</h3>
 
           <div class="work-item">
-            <h4>FULL-TIME ILLUSTRATOR</h4>
-            <p class="work-period">(2022-PRESENT)</p>
+            <a><h4>#HACK CHICAGO</h4></a>
+            <p class="work-position">Spiritual Discipline Tracking App</p>
+            <p class="work-period">(2024)</p>
           </div>
 
           <div class="work-item">
-            <h4>PART-TIME GRAPHIC DESIGNER & ILLUSTRATOR</h4>
-            <p class="work-period">(2021-2022)</p>
+            <a><h4>GLOO AI AND THE CHURCH HACKATHON</h4></a>
+            <p class="work-position">SarAIh</p>
+            <p class="work-period">(2024)</p>
           </div>
 
-          <div class="work-image image-hover">
-            <!-- <img src="/images/works/laptop.jpg" alt="Designer working on laptop" /> -->
+          <div class="work-item">
+            <a><h4>GLOO AI AND THE CHURCH HACKATHON</h4></a>
+            <p class="work-position">Spark AI</p>
+            <p class="work-period">(2023)</p>
           </div>
         </div>
       </div>
