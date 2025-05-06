@@ -47,8 +47,8 @@ export default {
   setup() {
     const sectionTitle = ref(null)
     const skillsImage = ref(null)
-    const graphicDesign = ref(null)
-    const illustration = ref(null)
+    const devSkills = ref(null)
+    const programmingLanguages = ref(null)
 
     onMounted(() => {
       // GSAP animation
@@ -62,20 +62,20 @@ export default {
         opacity: 0,
         x: -30
       }, '-=0.5')
-      .from(graphicDesign.value, {
+      .from(devSkills.value, {
         opacity: 0,
         y: 20
       }, '-=0.5')
-      .from(graphicDesign.value.querySelectorAll('li'), {
+      .from(devSkills.value.querySelectorAll('li'), {
         opacity: 0,
         x: 20,
         stagger: 0.1
       }, '-=0.5')
-      .from(illustration.value, {
+      .from(programmingLanguages.value, {
         opacity: 0,
         y: 20
       }, '-=0.3')
-      .from(illustration.value.querySelectorAll('li'), {
+      .from(programmingLanguages.value.querySelectorAll('li'), {
         opacity: 0,
         x: 20,
         stagger: 0.1
@@ -85,8 +85,8 @@ export default {
     return {
       sectionTitle,
       skillsImage,
-      graphicDesign,
-      illustration
+      devSkills,
+      programmingLanguages
     }
   }
 }

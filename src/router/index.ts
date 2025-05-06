@@ -42,23 +42,17 @@ const routes = [
     meta: { pageNumber: '03' }
   },
   {
-    path: '/skills',
-    name: 'Skills',
-    component: () => import("../views/Skills.vue"),
-    meta: { pageNumber: '04' }
-  },
-  {
     path: '/projects',
     name: 'Projects',
     component: () => import("../views/Projects.vue"),
-    meta: { pageNumber: '05' }
+    meta: { pageNumber: '04' }
   },
-  // {
-  //   path: '/contact',
-  //   name: 'Contact',
-  //   component: Contact,
-  //   meta: { pageNumber: '07' }
-  // }
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import("../views/Contact.vue"),
+    meta: { pageNumber: '05' }
+  }
 ]
 
 const router = createRouter({
